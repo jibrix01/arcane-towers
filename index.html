@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Three Towers</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet & Script -->
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <main class="wrap">
+    <!-- Header / Hero -->
+    <header class="hero">
+      <div class="eyebrow">A Rite of Patience</div>
+      <h1>The Three Towers</h1>
+      <p class="teaser">Drag the sealed rings from the first tower to the last. A ring may never rest upon one smaller than itself.</p>
+      <div class="sigil-divider" aria-hidden="true">✦</div>
+    </header>
+
+    <!-- Setup Screen -->
+    <section class="screen is-active" id="setupScreen" aria-label="Game Setup">
+      <div class="setup-panel">
+        <span class="control-label">Choose the Number of Rings</span>
+        
+        <div class="stepper">
+          <button type="button" id="dec" aria-label="Decrease rings">–</button>
+          <span id="diskCount">4</span>
+          <button type="button" id="inc" aria-label="Increase rings">+</button>
+        </div>
+        
+        <p class="setup-note">Minimum rite: <strong id="minMovesPreview">15</strong> moves</p>
+        <button type="button" class="rune-button" id="beginBtn">✦ Begin the Rite</button>
+      </div>
+    </section>
+
+    <!-- Game Screen -->
+    <section class="screen" id="gameScreen" aria-label="Tower of Hanoi Board">
+      <div class="game-bar">
+        <div class="tally">
+          <span class="tally-num" id="moveCount">0</span>
+          <span class="tally-label">Moves Cast</span>
+        </div>
+        <div class="tally">
+          <span class="tally-num" id="minMoves">15</span>
+          <span class="tally-label">Minimum Rite</span>
+        </div>
+      </div>
+
+      <div class="altar">
+        <div class="towers">
+          <div class="tower" data-tower="0">
+            <div class="disk-stack" id="stack0"></div>
+            <div class="tower__base"></div>
+            <div class="tower__label">I</div>
+          </div>
+          <div class="tower" data-tower="1">
+            <div class="disk-stack" id="stack1"></div>
+            <div class="tower__base"></div>
+            <div class="tower__label">II</div>
+          </div>
+          <div class="tower" data-tower="2">
+            <div class="disk-stack" id="stack2"></div>
+            <div class="tower__base"></div>
+            <div class="tower__label">III</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="rite-note" id="riteNote">Drag the topmost ring of a tower to move it.</p>
+
+      <div class="back-row">
+        <button type="button" class="rune-button rune-button--ghost" id="backBtn">← Return to Setup</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-foot">✦ The Arcana watches in silence ✦</footer>
+  </main>
+
+</body>
+</html>
